@@ -9,7 +9,7 @@
       'target_name': 'p4nodeapi',
       'sources': [ '<(srcDir)p4nodeapi.cc', '<(srcDir)basicuser.cc' ],
       'include_dirs': ['<(includeDir)'],
-      'libraries': ['<(libDir)libclient.a','<(libDir)librpc.a','<(libDir)libsupp.a'],
+      'libraries': ['<(libDir)libclient.lib','<(libDir)librpc.lib','<(libDir)libsupp.lib', '<(libDir)ssleay32MT.lib', '<(libDir)libeay32MT.lib', 'Ws2_32.lib'],
     }
   ]
 }
