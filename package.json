@@ -20,7 +20,6 @@
   ],
   "description": "perforce client api for node.js",
   "version": "0.0.3",
-  "private": true,
   "main": "./main.js",
   "readme": "./README",
   "scripts": {
@@ -44,10 +43,5 @@
   "config": {
     "apiVersion": "16.1",
     "testPort": "perforce:1666"
-  },
-  "_id": "p4@0.0.2",
-  "dist": {
-    "shasum": "01fab66735609326b7983a07f55cd7f664bbeb8b"
-  },
-  "_from": "."
+  }
 }
