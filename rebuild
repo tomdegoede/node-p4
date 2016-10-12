@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [ ! -d "tmp/p4api" ]; then
+    if [ ! -d "tmp" ]; then
+        mkdir tmp
+    fi
+    if [ ! -f "tmp/p4api.tgz" ]; then
+        if [ `uname`="Darwin" ]; then
+            cd tmp && p4 print -o p4api.tgz //builds/r13.1/p4-bin/bin.darwin90x86_64/p4api.tgz && cd ..
+        else
+            echo "Please update the script to download the right p4api"
+        fi
+    fi
+    if [ ! -d tmp/p4api ]; then
+        cd tmp && tar xzf p4api.tgz && cd ..
+        echo "Please rename the directory in tmp (like p4api-X.X.X) to tmp/p4api"
+        exit 1
+    fi
+fi
+
+echo rm -fr build && node-gyp configure && node-gyp build && node test/test.js
