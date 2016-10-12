@@ -24,9 +24,8 @@
   "main": "./main.js",
   "readme": "./README",
   "scripts": {
-    "preinstall": "node ./npm_scripts/preinstall.js",
     "install":"node-gyp configure build",
-    "postinstall": "node ./npm_scripts/postinstall.js",
+    "postinstall": "cp -rf build/Release/* lib",
     "test":"node ./npm_scripts/test.js"
   },
   "dependencies": {},
@@ -35,14 +34,15 @@
   },
   "os": [
     "darwin",
-    "linux"
+    "linux",
+    "win32"
   ],
   "cpu": [
     "x86",
     "x64"
   ],
   "config": {
-    "apiVersion": "12.2",
+    "apiVersion": "16.1",
     "testPort": "perforce:1666"
   },
   "_id": "p4@0.0.2",
