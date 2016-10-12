@@ -1,5 +1,5 @@
 {
-  "name": "p4",
+  "name": "node-p4",
   "author": {
     "name": "Perforce Software, inc",
     "url": "http://www.perforce.com"
@@ -19,7 +19,7 @@
     }
   ],
   "description": "perforce client api for node.js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "main": "./main.js",
   "readme": "./README",
