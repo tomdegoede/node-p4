@@ -15,7 +15,9 @@
 //     NativeP4NodeApi = require("./lib."+architecture+"/p4nodeapi.node").P4NodeApi;
 //  })()
 
-NativeP4NodeApi = require("./lib/p4nodeapi").P4NodeApi;
+var os 	 	= require('os'); // x64
+
+NativeP4NodeApi = require(["./lib/p4nodeapi", os.platform(), os.arch()].join('_')).P4NodeApi;
 
 module.exports.P4Connection = function(_config) {
 	var that = this;

@@ -23,8 +23,8 @@
   "main": "./main.js",
   "readme": "./README",
   "scripts": {
-    "install":"node-gyp configure build",
-    "postinstall": "cp -rf build/Release/* lib",
+    "build":"node-gyp configure build",
+    "postbuild": "cp -rf build/Release/* lib",
     "test":"node ./npm_scripts/test.js"
   },
   "dependencies": {},
