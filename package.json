@@ -19,12 +19,12 @@
     }
   ],
   "description": "perforce client api for node.js",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "./main.js",
   "readme": "./README",
   "scripts": {
-    "build":"node-gyp configure build",
-    "postbuild": "cp -rf build/Release/* lib",
+    "build":"cp npm_scripts/binding.gyp binding.gyp && node-gyp configure build",
+    "postbuild": "cp -rf build/Release/p4nodeapi.node lib/ && rm binding.gyp && rm -rf build",
     "test":"node ./npm_scripts/test.js"
   },
   "dependencies": {},
