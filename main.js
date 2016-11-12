@@ -22,27 +22,19 @@ module.exports.P4Connection = function(_config) {
         'json':m_config.json
     });
 	
-	this.run = function() {
-		var args = arguments[0];
+	this.run = function(args, input) {
 		if (typeof(args)=="string")
 			args = args.split(" ");
 
-		var formString 	= "";
-		var callback	= false;
-
-		if (typeof(arguments[1])=="string")
-			formString = arguments[1];
-		else if (typeof(arguments[1])=="function")
-			callback = arguments[1];
-
-		if (!callback) {
-            callback = arguments[2];
-		}
-
-		if (typeof(callback)!="function")
-			throw Error("must provide callback to P4Connection.run");
-
-		_con.run(args,formString,callback);
+        return new Promise(function (resolve, reject) {
+            _con.run(args, input || "", function (err, ress) {
+                if(err) {
+                    reject(err);
+                } else {
+                    resolve(ress);
+                }
+            });
+        });
 	};
 
     this.close = function () {
