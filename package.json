@@ -19,7 +19,7 @@
     }
   ],
   "description": "perforce client api for node.js",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "main": "./main.js",
   "readme": "./README",
   "scripts": {
