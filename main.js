@@ -17,6 +17,7 @@ module.exports.P4Connection = function(_config) {
 
     var _con = new NativeP4NodeApi({
         'user':m_config.user,
+        'password':m_config.password,
         'port':m_config.port,
         'client':m_config.client,
         'json':m_config.json
