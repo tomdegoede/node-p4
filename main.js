@@ -29,9 +29,10 @@ module.exports.P4Connection = function(_config) {
 		if (typeof(args)=="string")
 			args = args.split(" ");
 
-        return queue = (queue || Promise.resolve()).then(function () {
+        return queue = (queue || Promise.resolve()).catch(function() {
+            return true;
+        }).then(function () {
             return new Promise(function (resolve, reject) {
-                console.log(args, input);
                 _con.run(args, input || "", function (err, ress) {
                     if(err) {
                         reject(err);
