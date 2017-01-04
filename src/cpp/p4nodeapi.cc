@@ -311,6 +311,8 @@ void P4NodeApi::EIO_P4(uv_work_t *req)
 void P4NodeApi::EIO_AfterP4(uv_work_t *req)
 {
     p4_baton_t *baton = static_cast<p4_baton_t *>(req->data);
+
+    // TODO re-ena
 //    baton->hw->Unref();
 
 	Isolate* isolate = Isolate::GetCurrent();

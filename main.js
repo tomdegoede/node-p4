@@ -22,18 +22,23 @@ module.exports.P4Connection = function(_config) {
         'client':m_config.client,
         'json':m_config.json
     });
+
+	var queue = null;
 	
 	this.run = function(args, input) {
 		if (typeof(args)=="string")
 			args = args.split(" ");
 
-        return new Promise(function (resolve, reject) {
-            _con.run(args, input || "", function (err, ress) {
-                if(err) {
-                    reject(err);
-                } else {
-                    resolve(ress);
-                }
+        return queue = (queue || Promise.resolve()).then(function () {
+            return new Promise(function (resolve, reject) {
+                console.log(args, input);
+                _con.run(args, input || "", function (err, ress) {
+                    if(err) {
+                        reject(err);
+                    } else {
+                        resolve(ress);
+                    }
+                });
             });
         });
 	};
